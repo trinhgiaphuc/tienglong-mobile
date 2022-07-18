@@ -1,22 +1,18 @@
 import * as React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { View } from 'react-native';
 import HomeScreen from '../screens/home';
 import AddWordScreen from '../screens/add-word';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import ProfileScreen from '../screens/profile';
 
-const BottomTab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
+export default function HomeTabs() {
   return (
-    <NavigationContainer>
-      <BottomTab.Navigator>
-        <BottomTab.Screen name="Home"
+      <Tab.Navigator>
+        <Tab.Screen name="Dictionary"
           component={HomeScreen}
           options={
             {
@@ -26,29 +22,28 @@ export default function Navigation() {
             }
           } />
 
-        <BottomTab.Screen name="Add"
+        <Tab.Screen name="Add"
           component={AddWordScreen}
           options={
             {
               headerShown: true,
               tabBarIcon: (props) => <TabBarIcon {...props} name="plus" />,
-              title: 'Thêm',
+              title: 'Định Nghĩa',
             }
           }
         />
 
-        <BottomTab.Screen name="Profile"
+        <Tab.Screen name="Profile"
           component={ProfileScreen}
           options={
             {
               headerShown: true,
               tabBarIcon: (props) => <TabBarIcon {...props} name="user" />,
-              title: 'Thêm',
+              title: 'Cá Nhân',
             }
           }
         />
-      </BottomTab.Navigator>
-    </NavigationContainer>
+      </Tab.Navigator>
   );
 }
 

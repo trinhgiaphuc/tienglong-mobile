@@ -51,7 +51,7 @@ export default function HomeTabs({ navigation }: Props) {
         listeners={{ tabPress: protectScreen('Add') }}
         options={
           {
-            headerShown: true,
+            headerShown: false,
             tabBarIcon: (props) => <TabBarIcon {...props} name="plus" />,
             title: 'Định Nghĩa',
           }

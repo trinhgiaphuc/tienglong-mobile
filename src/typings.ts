@@ -40,3 +40,19 @@ export type UserDetails = {
   words?: number,
   hearts?: number
 };
+
+// for stack screen
+export type RootStackParamList = {
+  Login: undefined;
+  Home: undefined;
+}
+
+
+// for bottom tab screen
+export type HomeTabParamList = {
+  Dictionary: undefined;
+  Add: undefined;
+  Profile: undefined;
+}
+
+

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Text, TextInput, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Carousel from 'react-native-reanimated-carousel';
-import CardListSection from '../commons/CardListSection';
-import SearchBar from '../sections/SearchBar';
+import CardListSection from '../components/commons/CardListSection'; 
+import SearchBar from '../components/sections/SearchBar';
 
 const SEED = [
   {

@@ -1,6 +1,7 @@
 import authReducer from './authSlice';
+import wordReducer from './wordSlice'; 
+
 
 const userReducer = () => { };
-const wordReducer = () => { };
 
 export { authReducer, userReducer, wordReducer };

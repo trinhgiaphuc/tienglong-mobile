@@ -49,11 +49,11 @@ export default function ProfileScreen({ navigation }: Props) {
             <Text className="font-bold">{userDetails?.words} words</Text>
           </Pressable>
         </View>
-        <View className="p-4 font-light text-sm">
-          <Text className="text-center">
-            Front end Developer, avid reader. Love to take a long walk, swim
-          </Text>
-        </View>
+        {/* <View className="p-4 font-light text-sm"> */}
+        {/*   <Text className="text-center"> */}
+        {/*     Front end Developer, avid reader. Love to take a long walk, swim */}
+        {/*   </Text> */}
+        {/* </View> */}
       </View>
     </View>
   );

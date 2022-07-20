@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { signInUser } from '../firebase/api';
 
-import { Text, View, TextInput, Pressable, KeyboardAvoidingView, ScrollView } from 'react-native';
 import * as yup from 'yup';
+import { Text, View, TextInput, Pressable, KeyboardAvoidingView, ScrollView } from 'react-native';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 import { useForm, Controller } from 'react-hook-form';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../typings';
 import { useAppSelector } from '../redux/hooks';
@@ -48,16 +48,16 @@ export default function LoginScreen({ navigation }: Props) {
   async function onSubmit(data: LoginFormType) {
     const valid = await checkFormValid(data);
     if (!valid) {
+      onError();
       return;
     } else {
-      console.warn('HOLA');
       setSubmitted(true);
       try {
         await signInUser(data)
         navigation.navigate('Home');
       } catch (error) {
-        setSubmitted(false);
         console.error(error);
+        setSubmitted(false);
         onError();
       }
 

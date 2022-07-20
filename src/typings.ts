@@ -13,13 +13,13 @@ export type Word = {
   status: string;
 };
 
-export type TodayWords = {
-  todayWords: Word[];
-};
-
-export type TrendingWords = {
-  trendingWords: Word[];
-};
+export type SearchBarWord = {
+  entityId: string;
+  word: string;
+  content: string;
+  author: string;
+  wordId: string;
+}
 
 export type LoginData = [{ email: string; password: string }];
 
@@ -44,11 +44,11 @@ export type RootStackParamList = {
   Home: undefined;
   WordList: {
     title: string;
+    id?: 'today-words' | 'trending-words';
     uid?: string;
     wordName?: string;
   };
 }
-
 
 // for bottom tab screen
 export type HomeTabParamList = {

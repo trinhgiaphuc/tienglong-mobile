@@ -4,8 +4,8 @@ import { authReducer, usersReducer, wordReducer } from './slice';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    words: wordReducer,
     // users: usersReducer,
-    // words: wordReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}),
 })

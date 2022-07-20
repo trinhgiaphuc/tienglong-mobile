@@ -15,7 +15,6 @@ import { signOutUser } from '../firebase/api';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LoginScreen from '../screens/login';
 import { EventArg } from '@react-navigation/native';
-import ProfileStacks from './profile';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>
 
@@ -34,11 +33,6 @@ export default function HomeTabs({ navigation }: Props) {
       }
     }
   }
-
-  // sắp xếp route cho profile
-  // lát nữa chia route ra cho profile, tách nữa thì ok
-  // implement từ của người dùng screen nested trong profile screen
-  // yeah that's pretty much it
 
   return (
     <Tab.Navigator>

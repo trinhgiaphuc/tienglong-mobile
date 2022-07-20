@@ -5,15 +5,12 @@ export type Word = {
   createdAt: number;
   example: string;
   word: string;
-  createdYear: string;
   author: string;
-  trend: string | null;
   updatedAt: number;
   approvedAt: number;
   id: string;
   heartCount: number;
   status: string;
-  source: string | null;
 };
 
 export type TodayWords = {
@@ -45,6 +42,11 @@ export type UserDetails = {
 export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
+  WordList: {
+    title: string;
+    uid?: string;
+    wordName?: string;
+  };
 }
 
 
@@ -54,5 +56,3 @@ export type HomeTabParamList = {
   Add: undefined;
   Profile: undefined;
 }
-
-

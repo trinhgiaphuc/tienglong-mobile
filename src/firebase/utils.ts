@@ -1,3 +1,5 @@
+import { DocumentSnapshot } from "firebase/firestore";
+
 export type WordFormData = {
   word: string;
   definition: string;
@@ -18,3 +20,12 @@ export function validWord(wordDetails: WordFormData) {
   }
   return true;
 }
+
+/**
+ * `Converts a firestore document to JSON`
+ * @param  {DocumentSnapshot} doc
+ */
+export function docToJSON(doc: DocumentSnapshot) {
+  const data = doc.data();
+  return JSON.parse(JSON.stringify(data));
+};

@@ -15,6 +15,7 @@ export function useAuth() {
     const unsub = onAuthStateChanged(auth, async userCred => {
       if (userCred) {
         const userDetails = await getUserDetails(userCred.uid);
+
         dispatch(login(userDetails));
       } else {
         dispatch(logout());
@@ -24,5 +25,5 @@ export function useAuth() {
     return () => unsub();
   }, []);
 
-  return {status};
+  return { status };
 }

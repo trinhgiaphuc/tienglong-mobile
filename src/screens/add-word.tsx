@@ -14,42 +14,6 @@ import { submitDefinition } from '../firebase/api';
 type Props = NativeStackScreenProps<HomeTabParamList, 'Add'>
 
 
-type SuccessModalPropsType = {
-  navigation: NativeStackNavigationProp<HomeTabParamList, "Add", undefined>;
-  showModal: boolean;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  reset: UseFormReset<FieldValues>;
-}
-
-function SuccessModal({ showModal, setShowModal, navigation, reset }: SuccessModalPropsType) {
-  return (
-    <Modal isVisible={showModal}>
-      <View className="w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl">
-        <Text className="mt-8 pt-4 text-center text-4xl font-bold text-gray-700">Thành Công</Text>
-        <Text className="my-4 text-center text-base text-gray-700">Woah, bạn vừa định nghĩa một từ mới!</Text>
-        <View className="space-x-4 mx-auto py-4 text-center flex flex-row">
-          <Pressable onPress={() => {
-            setShowModal(false);
-            navigation.navigate('Dictionary')
-          }} className="inline-block rounded-md bg-red-500 p-4 mr-2">
-            <Text>
-              Trang Chủ
-            </Text>
-          </Pressable>
-          <Pressable onPress={() => {
-            setShowModal(false);
-            reset();
-          }} className="inline-block rounded-md bg-green-500 p-4 ml-2 font-semibold text-green-100">
-            <Text>
-              Thêm Định Nghĩa
-            </Text>
-          </Pressable>
-        </View>
-      </View>
-    </Modal>
-  );
-}
-
 export default function AddWordScreen({ navigation }: Props) {
   const { userDetails } = useAppSelector(selectAuth);
 
@@ -70,7 +34,6 @@ export default function AddWordScreen({ navigation }: Props) {
     await submitDefinition(data);
     setShowModal(true);
   }
-
 
   return (
     <ScrollView className="bg-zinc-200 w-full h-full rounded px-4 py-10">
@@ -187,3 +150,41 @@ function ErrorMessage({ error }: { error: string }) {
     </Text>
   </View>
 }
+
+
+type SuccessModalPropsType = {
+  navigation: NativeStackNavigationProp<HomeTabParamList, "Add", undefined>;
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  reset: UseFormReset<FieldValues>;
+}
+
+function SuccessModal({ showModal, setShowModal, navigation, reset }: SuccessModalPropsType) {
+  return (
+    <Modal isVisible={showModal}>
+      <View className="w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl">
+        <Text className="mt-8 pt-4 text-center text-4xl font-bold text-gray-700">Thành Công</Text>
+        <Text className="my-4 text-center text-base text-gray-700">Woah, bạn vừa định nghĩa một từ mới!</Text>
+        <View className="space-x-4 mx-auto py-4 text-center flex flex-row">
+          <Pressable onPress={() => {
+            setShowModal(false);
+            navigation.navigate('Dictionary')
+          }} className="inline-block rounded-md bg-red-500 p-4 mr-2">
+            <Text>
+              Trang Chủ
+            </Text>
+          </Pressable>
+          <Pressable onPress={() => {
+            setShowModal(false);
+            reset();
+          }} className="inline-block rounded-md bg-green-500 p-4 ml-2 font-semibold text-green-100">
+            <Text>
+              Thêm Định Nghĩa
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+

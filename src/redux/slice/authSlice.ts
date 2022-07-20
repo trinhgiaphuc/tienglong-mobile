@@ -6,7 +6,7 @@ import { UserDetails } from '../../typings';
 // Define a type for the slice state
 interface AuthState {
   status: 'authenticated' | 'unauthenticated' | 'loading';
-  userDetails: UserDetails | null 
+  userDetails: UserDetails | null
 }
 
 // Define the initial state using that type
@@ -28,10 +28,13 @@ export const authSlice = createSlice({
       state.userDetails = null;
       state.status = 'unauthenticated';
     },
+    update: (state: AuthState, action) => {
+      state.userDetails = { ...state.userDetails, ...action.payload };
+    }
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, update } = authSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectAuth = (state: RootState) => state.auth;
